@@ -27,25 +27,77 @@ public class SignUpForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jLabelTitle = new javax.swing.JLabel();
+        jLabelSignUp = new javax.swing.JLabel();
+        jLabelUser = new javax.swing.JLabel();
+        jLabelPassword = new javax.swing.JLabel();
+        jTextFieldUsername = new javax.swing.JTextField();
+        jPasswordFieldPassword = new javax.swing.JPasswordField();
+        jLabelWarning = new javax.swing.JLabel();
+        jLabelBackground = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(756, 732));
+        setMinimumSize(new java.awt.Dimension(756, 732));
+        setPreferredSize(new java.awt.Dimension(756, 732));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabelTitle.setFont(new java.awt.Font("Ringbearer", 0, 36)); // NOI18N
+        jLabelTitle.setForeground(new java.awt.Color(174, 153, 108));
+        jLabelTitle.setText("LOTR  Stratego");
+        getContentPane().add(jLabelTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, -1, -1));
+
+        jLabelSignUp.setFont(new java.awt.Font("Ringbearer", 0, 36)); // NOI18N
+        jLabelSignUp.setForeground(new java.awt.Color(174, 153, 108));
+        jLabelSignUp.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelSignUp.setText("SignUp");
+        jLabelSignUp.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabelSignUpMousePressed(evt);
+            }
+        });
+        getContentPane().add(jLabelSignUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 400, 210, 210));
+
+        jLabelUser.setFont(new java.awt.Font("Ringbearer", 0, 24)); // NOI18N
+        jLabelUser.setForeground(new java.awt.Color(174, 153, 108));
+        jLabelUser.setText("Username");
+        getContentPane().add(jLabelUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, -1, -1));
+
+        jLabelPassword.setFont(new java.awt.Font("Ringbearer", 0, 24)); // NOI18N
+        jLabelPassword.setForeground(new java.awt.Color(174, 153, 108));
+        jLabelPassword.setText("Password");
+        getContentPane().add(jLabelPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 270, -1, -1));
+        getContentPane().add(jTextFieldUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 310, 160, 30));
+        getContentPane().add(jPasswordFieldPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 310, 160, 30));
+
+        jLabelWarning.setFont(new java.awt.Font("Ringbearer", 0, 18)); // NOI18N
+        jLabelWarning.setForeground(new java.awt.Color(174, 153, 108));
+        jLabelWarning.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(jLabelWarning, new org.netbeans.lib.awtextra.AbsoluteConstraints(4, 650, 750, 40));
+
+        jLabelBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lotr/stratego/VisualAssets/SignUp.png"))); // NOI18N
+        getContentPane().add(jLabelBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
+    private void jLabelSignUpMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelSignUpMousePressed
+        for(Player player: Player.Usuarios){
+            if(player.username.equals(jTextFieldUsername.getText())){
+                jLabelWarning.setText("Este nombre de usuario ya existe, porfavor elija uno nuevo.");
+            }
+        }
+            if(jPasswordFieldPassword.getText().length()<5){
+                jLabelWarning.setText("Password demasiado corto." + "\n" + "El password debe contener exactamente 5 caracteres.");
+            }else if(jPasswordFieldPassword.getText().length()>5){
+                jLabelWarning.setText("Password demasiado largo. /n El password debe contener exactamente 5 caracteres.");
+            }else{
+                Player usuario = new Player(jTextFieldUsername.getText(),jPasswordFieldPassword.getText());
+                Player.Usuarios.add(usuario);
+            }
+    }//GEN-LAST:event_jLabelSignUpMousePressed
+
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -79,5 +131,13 @@ public class SignUpForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabelBackground;
+    private javax.swing.JLabel jLabelPassword;
+    private javax.swing.JLabel jLabelSignUp;
+    private javax.swing.JLabel jLabelTitle;
+    private javax.swing.JLabel jLabelUser;
+    private javax.swing.JLabel jLabelWarning;
+    private javax.swing.JPasswordField jPasswordFieldPassword;
+    private javax.swing.JTextField jTextFieldUsername;
     // End of variables declaration//GEN-END:variables
 }
