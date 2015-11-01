@@ -6,7 +6,10 @@
     <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
       <Dimension value="[756, 732]"/>
     </Property>
+<<<<<<< HEAD
     <Property name="resizable" type="boolean" value="false"/>
+=======
+>>>>>>> Roberto
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -133,7 +136,7 @@
     <Component class="javax.swing.JLabel" name="jLabelWarning">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Ringbearer" size="18" style="0"/>
+          <Font name="Ringbearer" size="16" style="0"/>
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="6c" green="99" red="ae" type="rgb"/>

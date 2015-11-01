@@ -45,7 +45,10 @@ public class SignUpForm extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(756, 732));
+<<<<<<< HEAD
         setResizable(false);
+=======
+>>>>>>> Roberto
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         labelRegresarInicio.setFont(new java.awt.Font("Apple Chancery", 0, 14)); // NOI18N
@@ -86,7 +89,7 @@ public class SignUpForm extends javax.swing.JFrame {
         getContentPane().add(jTextFieldUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 310, 160, 30));
         getContentPane().add(jPasswordFieldPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 310, 160, 30));
 
-        jLabelWarning.setFont(new java.awt.Font("Ringbearer", 0, 18)); // NOI18N
+        jLabelWarning.setFont(new java.awt.Font("Ringbearer", 0, 16)); // NOI18N
         jLabelWarning.setForeground(new java.awt.Color(174, 153, 108));
         jLabelWarning.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         getContentPane().add(jLabelWarning, new org.netbeans.lib.awtextra.AbsoluteConstraints(4, 650, 750, 40));
@@ -103,10 +106,17 @@ public class SignUpForm extends javax.swing.JFrame {
                 jLabelWarning.setText("Este nombre de usuario ya existe, porfavor elija uno nuevo.");
             }
         }
+<<<<<<< HEAD
             if((jPasswordFieldPassword.getPassword()).length<5){
                 jLabelWarning.setText("Password demasiado corto." + "\n" + "El password debe contener exactamente 5 caracteres.");
             }else if((jPasswordFieldPassword.getPassword()).length>5){
                 jLabelWarning.setText("Password demasiado largo. /n El password debe contener exactamente 5 caracteres.");
+=======
+            if(jPasswordFieldPassword.getText().length()<5){
+                jLabelWarning.setText("Password demasiado corto. El password debe contener exactamente 5 caracteres.");
+            }else if(jPasswordFieldPassword.getText().length()>5){
+                jLabelWarning.setText("Password demasiado largo. El password debe contener exactamente 5 caracteres.");
+>>>>>>> Roberto
             }else{
                 Player usuario = new Player(jTextFieldUsername.getText(),(jPasswordFieldPassword.getPassword()).toString());
                 Player.Usuarios.add(usuario);

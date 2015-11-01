@@ -27,21 +27,60 @@ public class SignInForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jLabelTitle = new javax.swing.JLabel();
+        jLabelUser = new javax.swing.JLabel();
+        jLabelPassword = new javax.swing.JLabel();
+        jTextFieldUsername = new javax.swing.JTextField();
+        jPasswordFieldPassword = new javax.swing.JPasswordField();
+        jLabelSignIn = new javax.swing.JLabel();
+        jLabelWarning = new javax.swing.JLabel();
+        jLabelBackground = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabelTitle.setFont(new java.awt.Font("Ringbearer", 0, 36)); // NOI18N
+        jLabelTitle.setForeground(new java.awt.Color(18, 11, 11));
+        jLabelTitle.setText("LOTR  Stratego");
+        getContentPane().add(jLabelTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, -1, -1));
+
+        jLabelUser.setFont(new java.awt.Font("Ringbearer", 0, 24)); // NOI18N
+        jLabelUser.setForeground(new java.awt.Color(174, 153, 108));
+        jLabelUser.setText("Username");
+        getContentPane().add(jLabelUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, -1, -1));
+
+        jLabelPassword.setFont(new java.awt.Font("Ringbearer", 0, 24)); // NOI18N
+        jLabelPassword.setForeground(new java.awt.Color(174, 153, 108));
+        jLabelPassword.setText("Password");
+        getContentPane().add(jLabelPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 270, -1, -1));
+        getContentPane().add(jTextFieldUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 310, 160, 30));
+        getContentPane().add(jPasswordFieldPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 310, 160, 30));
+
+        jLabelSignIn.setFont(new java.awt.Font("Ringbearer", 0, 36)); // NOI18N
+        jLabelSignIn.setForeground(new java.awt.Color(174, 153, 108));
+        jLabelSignIn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelSignIn.setText("Sign In");
+        jLabelSignIn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabelSignInMousePressed(evt);
+            }
+        });
+        getContentPane().add(jLabelSignIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(269, 400, 210, 210));
+
+        jLabelWarning.setFont(new java.awt.Font("Ringbearer", 0, 16)); // NOI18N
+        jLabelWarning.setForeground(new java.awt.Color(174, 153, 108));
+        jLabelWarning.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(jLabelWarning, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 650, 750, 40));
+
+        jLabelBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lotr/stratego/VisualAssets/SignIn.png"))); // NOI18N
+        getContentPane().add(jLabelBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 730));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jLabelSignInMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelSignInMousePressed
+        
+    }//GEN-LAST:event_jLabelSignInMousePressed
 
     /**
      * @param args the command line arguments
@@ -79,5 +118,13 @@ public class SignInForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabelBackground;
+    private javax.swing.JLabel jLabelPassword;
+    private javax.swing.JLabel jLabelSignIn;
+    private javax.swing.JLabel jLabelTitle;
+    private javax.swing.JLabel jLabelUser;
+    private javax.swing.JLabel jLabelWarning;
+    private javax.swing.JPasswordField jPasswordFieldPassword;
+    private javax.swing.JTextField jTextFieldUsername;
     // End of variables declaration//GEN-END:variables
 }
