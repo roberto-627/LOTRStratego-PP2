@@ -39,7 +39,6 @@ public class SignUpForm extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(756, 732));
         setMinimumSize(new java.awt.Dimension(756, 732));
-        setPreferredSize(new java.awt.Dimension(756, 732));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabelTitle.setFont(new java.awt.Font("Ringbearer", 0, 36)); // NOI18N
@@ -70,7 +69,7 @@ public class SignUpForm extends javax.swing.JFrame {
         getContentPane().add(jTextFieldUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 310, 160, 30));
         getContentPane().add(jPasswordFieldPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 310, 160, 30));
 
-        jLabelWarning.setFont(new java.awt.Font("Ringbearer", 0, 18)); // NOI18N
+        jLabelWarning.setFont(new java.awt.Font("Ringbearer", 0, 16)); // NOI18N
         jLabelWarning.setForeground(new java.awt.Color(174, 153, 108));
         jLabelWarning.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         getContentPane().add(jLabelWarning, new org.netbeans.lib.awtextra.AbsoluteConstraints(4, 650, 750, 40));
@@ -88,9 +87,9 @@ public class SignUpForm extends javax.swing.JFrame {
             }
         }
             if(jPasswordFieldPassword.getText().length()<5){
-                jLabelWarning.setText("Password demasiado corto." + "\n" + "El password debe contener exactamente 5 caracteres.");
+                jLabelWarning.setText("Password demasiado corto. El password debe contener exactamente 5 caracteres.");
             }else if(jPasswordFieldPassword.getText().length()>5){
-                jLabelWarning.setText("Password demasiado largo. /n El password debe contener exactamente 5 caracteres.");
+                jLabelWarning.setText("Password demasiado largo. El password debe contener exactamente 5 caracteres.");
             }else{
                 Player usuario = new Player(jTextFieldUsername.getText(),jPasswordFieldPassword.getText());
                 Player.Usuarios.add(usuario);
