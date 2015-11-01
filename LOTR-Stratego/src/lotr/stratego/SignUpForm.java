@@ -5,6 +5,8 @@
  */
 package lotr.stratego;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author Roberto Melara
@@ -16,6 +18,10 @@ public class SignUpForm extends javax.swing.JFrame {
      */
     public SignUpForm() {
         initComponents();
+        
+        setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        
+        
     }
 
     /**
@@ -27,6 +33,7 @@ public class SignUpForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        labelRegresarInicio = new javax.swing.JLabel();
         jLabelTitle = new javax.swing.JLabel();
         jLabelSignUp = new javax.swing.JLabel();
         jLabelUser = new javax.swing.JLabel();
@@ -37,17 +44,26 @@ public class SignUpForm extends javax.swing.JFrame {
         jLabelBackground = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(756, 732));
         setMinimumSize(new java.awt.Dimension(756, 732));
-        setPreferredSize(new java.awt.Dimension(756, 732));
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabelTitle.setFont(new java.awt.Font("Ringbearer", 0, 36)); // NOI18N
+        labelRegresarInicio.setFont(new java.awt.Font("Apple Chancery", 0, 14)); // NOI18N
+        labelRegresarInicio.setForeground(new java.awt.Color(255, 255, 255));
+        labelRegresarInicio.setText("Regresar al menu de inicio...");
+        labelRegresarInicio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelRegresarInicioMouseClicked(evt);
+            }
+        });
+        getContentPane().add(labelRegresarInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 650, 180, 40));
+
+        jLabelTitle.setFont(new java.awt.Font("Apple Chancery", 0, 48)); // NOI18N
         jLabelTitle.setForeground(new java.awt.Color(174, 153, 108));
         jLabelTitle.setText("LOTR  Stratego");
-        getContentPane().add(jLabelTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, -1, -1));
+        getContentPane().add(jLabelTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
 
-        jLabelSignUp.setFont(new java.awt.Font("Ringbearer", 0, 36)); // NOI18N
+        jLabelSignUp.setFont(new java.awt.Font("Apple Chancery", 0, 36)); // NOI18N
         jLabelSignUp.setForeground(new java.awt.Color(174, 153, 108));
         jLabelSignUp.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelSignUp.setText("SignUp");
@@ -56,17 +72,17 @@ public class SignUpForm extends javax.swing.JFrame {
                 jLabelSignUpMousePressed(evt);
             }
         });
-        getContentPane().add(jLabelSignUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 400, 210, 210));
+        getContentPane().add(jLabelSignUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 390, 210, 210));
 
-        jLabelUser.setFont(new java.awt.Font("Ringbearer", 0, 24)); // NOI18N
+        jLabelUser.setFont(new java.awt.Font("Apple Chancery", 0, 36)); // NOI18N
         jLabelUser.setForeground(new java.awt.Color(174, 153, 108));
         jLabelUser.setText("Username");
-        getContentPane().add(jLabelUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, -1, -1));
+        getContentPane().add(jLabelUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, -1, -1));
 
-        jLabelPassword.setFont(new java.awt.Font("Ringbearer", 0, 24)); // NOI18N
+        jLabelPassword.setFont(new java.awt.Font("Apple Chancery", 0, 36)); // NOI18N
         jLabelPassword.setForeground(new java.awt.Color(174, 153, 108));
         jLabelPassword.setText("Password");
-        getContentPane().add(jLabelPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 270, -1, -1));
+        getContentPane().add(jLabelPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 260, -1, -1));
         getContentPane().add(jTextFieldUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 310, 160, 30));
         getContentPane().add(jPasswordFieldPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 310, 160, 30));
 
@@ -87,15 +103,27 @@ public class SignUpForm extends javax.swing.JFrame {
                 jLabelWarning.setText("Este nombre de usuario ya existe, porfavor elija uno nuevo.");
             }
         }
-            if(jPasswordFieldPassword.getText().length()<5){
+            if((jPasswordFieldPassword.getPassword()).length<5){
                 jLabelWarning.setText("Password demasiado corto." + "\n" + "El password debe contener exactamente 5 caracteres.");
-            }else if(jPasswordFieldPassword.getText().length()>5){
+            }else if((jPasswordFieldPassword.getPassword()).length>5){
                 jLabelWarning.setText("Password demasiado largo. /n El password debe contener exactamente 5 caracteres.");
             }else{
-                Player usuario = new Player(jTextFieldUsername.getText(),jPasswordFieldPassword.getText());
+                Player usuario = new Player(jTextFieldUsername.getText(),(jPasswordFieldPassword.getPassword()).toString());
                 Player.Usuarios.add(usuario);
             }
     }//GEN-LAST:event_jLabelSignUpMousePressed
+
+    private void labelRegresarInicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelRegresarInicioMouseClicked
+        Menu_Inicial inicial = new Menu_Inicial();
+        SignUpForm ingresar = new SignUpForm();
+        
+            ingresar.dispose();
+            inicial.setVisible(true);
+            
+        
+        
+         
+    }//GEN-LAST:event_labelRegresarInicioMouseClicked
 
     
     public static void main(String args[]) {
@@ -139,5 +167,6 @@ public class SignUpForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelWarning;
     private javax.swing.JPasswordField jPasswordFieldPassword;
     private javax.swing.JTextField jTextFieldUsername;
+    private javax.swing.JLabel labelRegresarInicio;
     // End of variables declaration//GEN-END:variables
 }
