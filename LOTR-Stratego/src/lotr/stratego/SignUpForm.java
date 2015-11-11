@@ -42,12 +42,12 @@ public class SignUpForm extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(756, 732));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabelTitle.setFont(new java.awt.Font("Ringbearer", 0, 36)); // NOI18N
+        jLabelTitle.setFont(new java.awt.Font("Apple Chancery", 1, 52)); // NOI18N
         jLabelTitle.setForeground(new java.awt.Color(174, 153, 108));
         jLabelTitle.setText("LOTR  Stratego");
-        getContentPane().add(jLabelTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, -1, -1));
+        getContentPane().add(jLabelTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
 
-        jLabelSignUp.setFont(new java.awt.Font("Ringbearer", 0, 36)); // NOI18N
+        jLabelSignUp.setFont(new java.awt.Font("Apple Chancery", 1, 36)); // NOI18N
         jLabelSignUp.setForeground(new java.awt.Color(174, 153, 108));
         jLabelSignUp.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelSignUp.setText("SignUp");
@@ -58,15 +58,15 @@ public class SignUpForm extends javax.swing.JFrame {
         });
         getContentPane().add(jLabelSignUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 400, 210, 210));
 
-        jLabelUser.setFont(new java.awt.Font("Ringbearer", 0, 24)); // NOI18N
+        jLabelUser.setFont(new java.awt.Font("Apple Chancery", 1, 36)); // NOI18N
         jLabelUser.setForeground(new java.awt.Color(174, 153, 108));
         jLabelUser.setText("Username");
-        getContentPane().add(jLabelUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, -1, -1));
+        getContentPane().add(jLabelUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, -1, -1));
 
-        jLabelPassword.setFont(new java.awt.Font("Ringbearer", 0, 24)); // NOI18N
+        jLabelPassword.setFont(new java.awt.Font("Apple Chancery", 1, 36)); // NOI18N
         jLabelPassword.setForeground(new java.awt.Color(174, 153, 108));
         jLabelPassword.setText("Password");
-        getContentPane().add(jLabelPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 270, -1, -1));
+        getContentPane().add(jLabelPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 260, -1, -1));
         getContentPane().add(jTextFieldUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 310, 160, 30));
         getContentPane().add(jPasswordFieldPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 310, 160, 30));
 
