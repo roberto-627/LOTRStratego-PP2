@@ -5,6 +5,9 @@
  */
 package lotr.stratego;
 
+import javax.swing.JOptionPane;
+import lotr.stratego.MenuPrincipal.MenuPrincipal;
+
 /**
  *
  * @author Roberto Melara
@@ -17,6 +20,8 @@ public class SignInForm extends javax.swing.JFrame {
     public SignInForm() {
         initComponents();
     }
+    
+    public static Player currentPlayer,secondPlayer;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -53,6 +58,12 @@ public class SignInForm extends javax.swing.JFrame {
         jLabelPassword.setForeground(new java.awt.Color(174, 153, 108));
         jLabelPassword.setText("Password:");
         getContentPane().add(jLabelPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 270, -1, -1));
+
+        jTextFieldUsername.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldUsernameActionPerformed(evt);
+            }
+        });
         getContentPane().add(jTextFieldUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 310, 160, 30));
         getContentPane().add(jPasswordFieldPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 310, 160, 30));
 
@@ -79,8 +90,15 @@ public class SignInForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabelSignInMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelSignInMousePressed
+        MenuPrincipal mp = new MenuPrincipal();
         
+        
+            
     }//GEN-LAST:event_jLabelSignInMousePressed
+
+    private void jTextFieldUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUsernameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldUsernameActionPerformed
 
     /**
      * @param args the command line arguments

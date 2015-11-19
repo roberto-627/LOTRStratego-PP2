@@ -6,6 +6,7 @@
 package lotr.stratego;
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -32,6 +33,23 @@ public class Player {
         fuerzaMal = 0;
         Ultimos10 = new ArrayList<>();
     }
+    
+    public String getUser(){
+        return username;
+    }
+    
+    public String getPass(){
+        return password;
+    }
+    
+    public int getPuntos(){
+        return puntos;
+    }
+    
+    public int getPartidas(){
+        return partidas;
+    }
+    
     
     //Arraylist que contiene a los players.
     public static ArrayList<Player> Usuarios = new ArrayList<>();
