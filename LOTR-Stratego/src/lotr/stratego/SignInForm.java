@@ -36,27 +36,27 @@ public class SignInForm extends javax.swing.JFrame {
         jLabelWarning = new javax.swing.JLabel();
         jLabelBackground = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabelTitle.setFont(new java.awt.Font("Ringbearer", 0, 36)); // NOI18N
+        jLabelTitle.setFont(new java.awt.Font("Baskerville Old Face", 0, 48)); // NOI18N
         jLabelTitle.setForeground(new java.awt.Color(18, 11, 11));
         jLabelTitle.setText("LOTR  Stratego");
         getContentPane().add(jLabelTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, -1, -1));
 
-        jLabelUser.setFont(new java.awt.Font("Ringbearer", 0, 24)); // NOI18N
+        jLabelUser.setFont(new java.awt.Font("Baskerville Old Face", 0, 36)); // NOI18N
         jLabelUser.setForeground(new java.awt.Color(174, 153, 108));
-        jLabelUser.setText("Username");
-        getContentPane().add(jLabelUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, -1, -1));
+        jLabelUser.setText("Username:");
+        getContentPane().add(jLabelUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, -1, -1));
 
-        jLabelPassword.setFont(new java.awt.Font("Ringbearer", 0, 24)); // NOI18N
+        jLabelPassword.setFont(new java.awt.Font("Baskerville Old Face", 0, 36)); // NOI18N
         jLabelPassword.setForeground(new java.awt.Color(174, 153, 108));
-        jLabelPassword.setText("Password");
-        getContentPane().add(jLabelPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 270, -1, -1));
+        jLabelPassword.setText("Password:");
+        getContentPane().add(jLabelPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 270, -1, -1));
         getContentPane().add(jTextFieldUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 310, 160, 30));
         getContentPane().add(jPasswordFieldPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 310, 160, 30));
 
-        jLabelSignIn.setFont(new java.awt.Font("Ringbearer", 0, 36)); // NOI18N
+        jLabelSignIn.setFont(new java.awt.Font("Baskerville Old Face", 0, 48)); // NOI18N
         jLabelSignIn.setForeground(new java.awt.Color(174, 153, 108));
         jLabelSignIn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelSignIn.setText("Sign In");
