@@ -23,6 +23,8 @@ public class SignInForm extends javax.swing.JFrame {
         initComponents();
     }
     
+    public static Player currentPlayer, secondPlayer;
+    
    
 
     /**
@@ -86,20 +88,27 @@ public class SignInForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabelSignInMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelSignInMousePressed
+     
         
-        
-        for(Player player :Player.Usuarios){
+        for(Player player :Player.Usuarios)
+            
             if((jTextFieldUsername.getText().equals(player.username)&&(String.valueOf(jPasswordFieldPassword.getPassword()).equals(player.password)))){
                 JOptionPane.showMessageDialog(null, "Bienvenido!!!"); 
+                currentPlayer = player;
                 MenuPrincipal mp = new MenuPrincipal();
                 mp.setVisible(true);
-                
-                break;
+                jTextFieldUsername.setText("");
+                jPasswordFieldPassword.setText(null);
+                return;
             }else{
-                System.out.println("ADIOS");
+                JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrecta, Intente de nuevo!!");
+                jTextFieldUsername.setText("");
+                jPasswordFieldPassword.setText(null);
+                return;
                     
             }
-        }
+        
+     
     }//GEN-LAST:event_jLabelSignInMousePressed
 
     /**

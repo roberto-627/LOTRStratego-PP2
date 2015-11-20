@@ -36,7 +36,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         cmdCerrarSesion = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         cmdStrategoLOTR.setFont(new java.awt.Font("Baskerville", 0, 18)); // NOI18N
@@ -107,6 +107,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_cmdTierraMediaActionPerformed
 
     private void cmdCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCerrarSesionActionPerformed
+        this.dispose();
         System.out.println("Cerrar sesion");
     }//GEN-LAST:event_cmdCerrarSesionActionPerformed
 

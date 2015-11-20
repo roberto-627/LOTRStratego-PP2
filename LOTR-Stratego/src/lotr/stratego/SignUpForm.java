@@ -99,7 +99,7 @@ public class SignUpForm extends javax.swing.JFrame {
                 
                 jTextFieldUsername.setText("");
                 jPasswordFieldPassword.setText(null);
-                main.setVisible(true);
+                
                 this.dispose();
                 
                 return;               
