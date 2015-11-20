@@ -27,21 +27,69 @@ public class VerDatos extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        txtUsuarioPerfil = new javax.swing.JTextField();
+        txtPuntosPerfil = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtPartidasPerfil = new javax.swing.JTextArea();
+        cmdRegresarMenuP = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        txtUsuarioPerfil.setEditable(false);
+        txtUsuarioPerfil.setFont(new java.awt.Font("Baskerville", 0, 24)); // NOI18N
+        getContentPane().add(txtUsuarioPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, 150, 30));
+
+        txtPuntosPerfil.setEditable(false);
+        txtPuntosPerfil.setFont(new java.awt.Font("Baskerville", 0, 24)); // NOI18N
+        getContentPane().add(txtPuntosPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, 150, 30));
+
+        txtPartidasPerfil.setEditable(false);
+        txtPartidasPerfil.setColumns(20);
+        txtPartidasPerfil.setRows(5);
+        jScrollPane1.setViewportView(txtPartidasPerfil);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 430, 110));
+
+        cmdRegresarMenuP.setFont(new java.awt.Font("Baskerville", 0, 18)); // NOI18N
+        cmdRegresarMenuP.setText("Regresar a menu Perfil");
+        cmdRegresarMenuP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdRegresarMenuPActionPerformed(evt);
+            }
+        });
+        getContentPane().add(cmdRegresarMenuP, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 280, 260, -1));
+
+        jLabel4.setFont(new java.awt.Font("Baskerville", 1, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Ultimos Partidos:");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
+
+        jLabel2.setFont(new java.awt.Font("Baskerville", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Usuario:");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("Baskerville", 1, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Puntos:");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, -1, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lotr/stratego/VisualAssets/misdatos.jpg"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 520, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void cmdRegresarMenuPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdRegresarMenuPActionPerformed
+        this.dispose();
+        MiPerfil mp = new MiPerfil();
+        mp.setVisible(true);
+    }//GEN-LAST:event_cmdRegresarMenuPActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +127,14 @@ public class VerDatos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton cmdRegresarMenuP;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JScrollPane jScrollPane1;
+    public javax.swing.JTextArea txtPartidasPerfil;
+    public javax.swing.JTextField txtPuntosPerfil;
+    public javax.swing.JTextField txtUsuarioPerfil;
     // End of variables declaration//GEN-END:variables
 }

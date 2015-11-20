@@ -22,11 +22,7 @@ public class SignInForm extends javax.swing.JFrame {
      */
     public SignInForm() {
         initComponents();
-    }
-    
-    
-    
-   
+    } 
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -46,7 +42,7 @@ public class SignInForm extends javax.swing.JFrame {
         jLabelWarning = new javax.swing.JLabel();
         jLabelBackground = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabelTitle.setFont(new java.awt.Font("Baskerville", 0, 48)); // NOI18N
@@ -98,6 +94,7 @@ public class SignInForm extends javax.swing.JFrame {
                 mp.setVisible(true); 
                 jTextFieldUsername.setText("");
                 jPasswordFieldPassword.setText(null);
+                this.dispose();
         }else{
             JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrecta...intente de nuevo!!");
             jTextFieldUsername.setText("");

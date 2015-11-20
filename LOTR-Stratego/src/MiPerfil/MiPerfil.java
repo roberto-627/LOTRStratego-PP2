@@ -5,6 +5,9 @@
  */
 package MiPerfil;
 
+import javax.swing.JOptionPane;
+import lotr.stratego.MenuPrincipal.MenuPrincipal;
+import lotr.stratego.Player;
 /**
  *
  * @author samuelborjas
@@ -28,6 +31,7 @@ public class MiPerfil extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel2 = new javax.swing.JLabel();
+        cmdEliminarCuenta = new javax.swing.JButton();
         cmdRegresarMP = new javax.swing.JButton();
         cmdFacebook = new javax.swing.JButton();
         cmdCambiarPass = new javax.swing.JButton();
@@ -42,12 +46,31 @@ public class MiPerfil extends javax.swing.JFrame {
         jLabel2.setText("Mi Perfil");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
 
+        cmdEliminarCuenta.setFont(new java.awt.Font("Baskerville", 0, 18)); // NOI18N
+        cmdEliminarCuenta.setText("Eliminar Cuenta");
+        cmdEliminarCuenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdEliminarCuentaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(cmdEliminarCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 190, 220, -1));
+
         cmdRegresarMP.setFont(new java.awt.Font("Baskerville", 0, 18)); // NOI18N
         cmdRegresarMP.setText("Regresar Menu Principal");
-        getContentPane().add(cmdRegresarMP, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 190, -1, -1));
+        cmdRegresarMP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdRegresarMPActionPerformed(evt);
+            }
+        });
+        getContentPane().add(cmdRegresarMP, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, -1, -1));
 
         cmdFacebook.setFont(new java.awt.Font("Baskerville Old Face", 0, 18)); // NOI18N
         cmdFacebook.setText("Conectar a Facebook");
+        cmdFacebook.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdFacebookActionPerformed(evt);
+            }
+        });
         getContentPane().add(cmdFacebook, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 160, 230, -1));
 
         cmdCambiarPass.setFont(new java.awt.Font("Baskerville", 0, 18)); // NOI18N
@@ -57,7 +80,7 @@ public class MiPerfil extends javax.swing.JFrame {
                 cmdCambiarPassActionPerformed(evt);
             }
         });
-        getContentPane().add(cmdCambiarPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, 230, -1));
+        getContentPane().add(cmdCambiarPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, 230, -1));
 
         cmdVerDatos.setFont(new java.awt.Font("Baskerville", 0, 18)); // NOI18N
         cmdVerDatos.setText("Ver mis datos");
@@ -66,7 +89,7 @@ public class MiPerfil extends javax.swing.JFrame {
                 cmdVerDatosActionPerformed(evt);
             }
         });
-        getContentPane().add(cmdVerDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, 230, -1));
+        getContentPane().add(cmdVerDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 90, 230, -1));
 
         jLabel1.setFont(new java.awt.Font("Baskerville", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -78,14 +101,33 @@ public class MiPerfil extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cmdVerDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdVerDatosActionPerformed
-       VerDatos vd = new VerDatos();
+       this.dispose();
+        VerDatos vd = new VerDatos();
+        vd.txtUsuarioPerfil.setText(Player.currentPlayer.getUser());
+        vd.txtPuntosPerfil.setText(String.valueOf(Player.currentPlayer.getPuntos()));
+        vd.txtPartidasPerfil.setText(String.valueOf(Player.currentPlayer.getPartidas()));
         vd.setVisible(true);
     }//GEN-LAST:event_cmdVerDatosActionPerformed
 
     private void cmdCambiarPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCambiarPassActionPerformed
+        this.dispose();
         CambiarPass cp = new CambiarPass();
             cp.setVisible(true);
     }//GEN-LAST:event_cmdCambiarPassActionPerformed
+
+    private void cmdRegresarMPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdRegresarMPActionPerformed
+        this.dispose();
+        MenuPrincipal mp = new MenuPrincipal();
+        mp.setVisible(true);
+    }//GEN-LAST:event_cmdRegresarMPActionPerformed
+
+    private void cmdFacebookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdFacebookActionPerformed
+        JOptionPane.showMessageDialog(null, "PROXIMAMENTE DISPONIBLE");
+    }//GEN-LAST:event_cmdFacebookActionPerformed
+
+    private void cmdEliminarCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdEliminarCuentaActionPerformed
+        JOptionPane.showMessageDialog(null, "PROXIMAMENTE DISPONIBLE");
+    }//GEN-LAST:event_cmdEliminarCuentaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -124,6 +166,7 @@ public class MiPerfil extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cmdCambiarPass;
+    private javax.swing.JButton cmdEliminarCuenta;
     private javax.swing.JButton cmdFacebook;
     private javax.swing.JButton cmdRegresarMP;
     private javax.swing.JButton cmdVerDatos;

@@ -52,6 +52,10 @@ public class Player {
         return partidas;
     }
     
+    public void setPass(String pass){
+        password = pass;
+    }
+    
     public static boolean validar(String user, String pass){
         for(Player player :Player.Usuarios) 
             

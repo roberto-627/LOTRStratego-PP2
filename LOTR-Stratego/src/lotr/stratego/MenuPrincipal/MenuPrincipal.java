@@ -6,6 +6,7 @@
 package lotr.stratego.MenuPrincipal;
 
 import MiPerfil.MiPerfil;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -91,11 +92,15 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cmdMiPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdMiPerfilActionPerformed
+      
+        MiPerfil mip = new MiPerfil();
+        mip.setVisible(true);
         
     }//GEN-LAST:event_cmdMiPerfilActionPerformed
 
     private void cmdConfiguracionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdConfiguracionActionPerformed
-         System.out.println("CONFIGURAR");
+        JOptionPane.showMessageDialog(null, "PROXIMAMENTE DISPONIBLE"); 
+        System.out.println("CONFIGURAR");
     }//GEN-LAST:event_cmdConfiguracionActionPerformed
 
     private void cmdStrategoLOTRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdStrategoLOTRActionPerformed
@@ -103,11 +108,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_cmdStrategoLOTRActionPerformed
 
     private void cmdTierraMediaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdTierraMediaActionPerformed
+       JOptionPane.showMessageDialog(null, "PROXIMAMENTE DISPONIBLE");
         System.out.println("TIERRA");
     }//GEN-LAST:event_cmdTierraMediaActionPerformed
 
     private void cmdCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCerrarSesionActionPerformed
         this.dispose();
+        JOptionPane.showMessageDialog(null, "Cerro Sesion Exitosamente!!");
         System.out.println("Cerrar sesion");
     }//GEN-LAST:event_cmdCerrarSesionActionPerformed
 
