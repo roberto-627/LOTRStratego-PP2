@@ -96,9 +96,12 @@ public class SignInForm extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Bienvenido!!!"); 
                 MenuPrincipal mp = new MenuPrincipal();
                 mp.setVisible(true); 
-                System.out.println(currentPlayer);
+                jTextFieldUsername.setText("");
+                jPasswordFieldPassword.setText(null);
         }else{
             JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrecta...intente de nuevo!!");
+            jTextFieldUsername.setText("");
+            jPasswordFieldPassword.setText(null);
         }
  
     }//GEN-LAST:event_jLabelSignInMousePressed
