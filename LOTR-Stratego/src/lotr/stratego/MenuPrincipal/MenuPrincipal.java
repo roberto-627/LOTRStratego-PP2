@@ -41,6 +41,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         cmdStrategoLOTR.setFont(new java.awt.Font("Baskerville", 0, 18)); // NOI18N
         cmdStrategoLOTR.setText("* STRATEGO - LOTR!");
+        cmdStrategoLOTR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdStrategoLOTRActionPerformed(evt);
+            }
+        });
         getContentPane().add(cmdStrategoLOTR, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, -1, -1));
 
         cmdMiPerfil.setFont(new java.awt.Font("Baskerville", 0, 18)); // NOI18N
@@ -54,14 +59,29 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         cmdConfiguracion.setFont(new java.awt.Font("Baskerville", 0, 18)); // NOI18N
         cmdConfiguracion.setText("Configuracion");
+        cmdConfiguracion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdConfiguracionActionPerformed(evt);
+            }
+        });
         getContentPane().add(cmdConfiguracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 140, -1, -1));
 
         cmdTierraMedia.setFont(new java.awt.Font("Baskerville", 0, 18)); // NOI18N
         cmdTierraMedia.setText("Tierra Media");
+        cmdTierraMedia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdTierraMediaActionPerformed(evt);
+            }
+        });
         getContentPane().add(cmdTierraMedia, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 190, -1, -1));
 
         cmdCerrarSesion.setFont(new java.awt.Font("Baskerville", 0, 18)); // NOI18N
         cmdCerrarSesion.setText("Cerrar Sesion");
+        cmdCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdCerrarSesionActionPerformed(evt);
+            }
+        });
         getContentPane().add(cmdCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 240, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lotr/stratego/VisualAssets/principal.jpg"))); // NOI18N
@@ -71,9 +91,24 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cmdMiPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdMiPerfilActionPerformed
-        MiPerfil mp = new MiPerfil();
-            mp.setVisible(true);
+        
     }//GEN-LAST:event_cmdMiPerfilActionPerformed
+
+    private void cmdConfiguracionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdConfiguracionActionPerformed
+         System.out.println("CONFIGURAR");
+    }//GEN-LAST:event_cmdConfiguracionActionPerformed
+
+    private void cmdStrategoLOTRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdStrategoLOTRActionPerformed
+        System.out.println("ESTRATEGO");
+    }//GEN-LAST:event_cmdStrategoLOTRActionPerformed
+
+    private void cmdTierraMediaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdTierraMediaActionPerformed
+        System.out.println("TIERRA");
+    }//GEN-LAST:event_cmdTierraMediaActionPerformed
+
+    private void cmdCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCerrarSesionActionPerformed
+        System.out.println("Cerrar sesion");
+    }//GEN-LAST:event_cmdCerrarSesionActionPerformed
 
     /**
      * @param args the command line arguments
