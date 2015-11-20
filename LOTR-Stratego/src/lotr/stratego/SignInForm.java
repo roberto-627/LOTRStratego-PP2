@@ -9,6 +9,7 @@ import java.util.HashSet;
 import java.util.Set;
 import javax.swing.JOptionPane;
 import lotr.stratego.MenuPrincipal.MenuPrincipal;
+import static lotr.stratego.Player.currentPlayer;
 
 /**
  *
@@ -23,7 +24,7 @@ public class SignInForm extends javax.swing.JFrame {
         initComponents();
     }
     
-    public static Player currentPlayer, secondPlayer;
+    
     
    
 
@@ -88,27 +89,18 @@ public class SignInForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabelSignInMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelSignInMousePressed
-     
+        String user = jTextFieldUsername.getText();
+        String pass = String.valueOf(jPasswordFieldPassword.getPassword());
         
-        for(Player player :Player.Usuarios)
-            
-            if((jTextFieldUsername.getText().equals(player.username)&&(String.valueOf(jPasswordFieldPassword.getPassword()).equals(player.password)))){
-                JOptionPane.showMessageDialog(null, "Bienvenido!!!"); 
-                currentPlayer = player;
+        if(Player.validar(user,pass)){  
+            JOptionPane.showMessageDialog(null, "Bienvenido!!!"); 
                 MenuPrincipal mp = new MenuPrincipal();
-                mp.setVisible(true);
-                jTextFieldUsername.setText("");
-                jPasswordFieldPassword.setText(null);
-                return;
-            }else{
-                JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrecta, Intente de nuevo!!");
-                jTextFieldUsername.setText("");
-                jPasswordFieldPassword.setText(null);
-                return;
-                    
-            }
-        
-     
+                mp.setVisible(true); 
+                System.out.println(currentPlayer);
+        }else{
+            JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrecta...intente de nuevo!!");
+        }
+ 
     }//GEN-LAST:event_jLabelSignInMousePressed
 
     /**

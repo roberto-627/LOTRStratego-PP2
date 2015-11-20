@@ -7,6 +7,7 @@ package lotr.stratego;
 
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import lotr.stratego.MenuPrincipal.MenuPrincipal;
 
 /**
  *
@@ -21,6 +22,7 @@ public class Player {
     int fuerzaBien;
     int fuerzaMal;
     ArrayList <String> Ultimos10;
+    public static Player currentPlayer, secondPlayer;
     
     //Cosntructor de Players.
     public Player(String un, String pass){
@@ -48,6 +50,17 @@ public class Player {
     
     public int getPartidas(){
         return partidas;
+    }
+    
+    public static boolean validar(String user, String pass){
+        for(Player player :Player.Usuarios) 
+            
+        if((user.equals(player.username)&&(pass.equals(player.password)))){
+            currentPlayer = player;
+            return true;
+        }
+            return false;
+           
     }
     
     
