@@ -27,21 +27,60 @@ public class MainMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        cmdSignUp = new javax.swing.JButton();
+        cmdSignIn = new javax.swing.JButton();
+        cmdSalir = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        cmdSignUp.setFont(new java.awt.Font("Baskerville", 0, 24)); // NOI18N
+        cmdSignUp.setText("Crear Nuevo Jugador");
+        cmdSignUp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdSignUpActionPerformed(evt);
+            }
+        });
+        getContentPane().add(cmdSignUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, -1, -1));
+
+        cmdSignIn.setFont(new java.awt.Font("Baskerville", 0, 24)); // NOI18N
+        cmdSignIn.setText("Ingresar");
+        cmdSignIn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdSignInActionPerformed(evt);
+            }
+        });
+        getContentPane().add(cmdSignIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, -1, -1));
+
+        cmdSalir.setFont(new java.awt.Font("Baskerville", 0, 24)); // NOI18N
+        cmdSalir.setText("Salir");
+        cmdSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdSalirActionPerformed(evt);
+            }
+        });
+        getContentPane().add(cmdSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 300, -1, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lotr/stratego/VisualAssets/inicio.jpg"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void cmdSignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdSignInActionPerformed
+        SignInForm signin = new SignInForm();
+            signin.setVisible(true);
+    }//GEN-LAST:event_cmdSignInActionPerformed
+
+    private void cmdSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdSalirActionPerformed
+       System.exit(0);
+    }//GEN-LAST:event_cmdSalirActionPerformed
+
+    private void cmdSignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdSignUpActionPerformed
+        SignUpForm signup = new SignUpForm();
+            signup.setVisible(true);
+    }//GEN-LAST:event_cmdSignUpActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +118,9 @@ public class MainMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton cmdSalir;
+    private javax.swing.JButton cmdSignIn;
+    private javax.swing.JButton cmdSignUp;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

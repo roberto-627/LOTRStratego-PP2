@@ -5,6 +5,10 @@
  */
 package lotr.stratego;
 
+import java.util.HashSet;
+import java.util.Set;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Roberto Melara
@@ -36,17 +40,16 @@ public class SignUpForm extends javax.swing.JFrame {
         jLabelWarning = new javax.swing.JLabel();
         jLabelBackground = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(756, 732));
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(756, 732));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabelTitle.setFont(new java.awt.Font("Ringbearer", 0, 36)); // NOI18N
+        jLabelTitle.setFont(new java.awt.Font("Baskerville Old Face", 1, 48)); // NOI18N
         jLabelTitle.setForeground(new java.awt.Color(174, 153, 108));
         jLabelTitle.setText("LOTR  Stratego");
         getContentPane().add(jLabelTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, -1, -1));
 
-        jLabelSignUp.setFont(new java.awt.Font("Ringbearer", 0, 36)); // NOI18N
+        jLabelSignUp.setFont(new java.awt.Font("Baskerville Old Face", 1, 48)); // NOI18N
         jLabelSignUp.setForeground(new java.awt.Color(174, 153, 108));
         jLabelSignUp.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelSignUp.setText("SignUp");
@@ -57,15 +60,15 @@ public class SignUpForm extends javax.swing.JFrame {
         });
         getContentPane().add(jLabelSignUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 400, 210, 210));
 
-        jLabelUser.setFont(new java.awt.Font("Ringbearer", 0, 24)); // NOI18N
+        jLabelUser.setFont(new java.awt.Font("Baskerville Old Face", 1, 36)); // NOI18N
         jLabelUser.setForeground(new java.awt.Color(174, 153, 108));
-        jLabelUser.setText("Username");
-        getContentPane().add(jLabelUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, -1, -1));
+        jLabelUser.setText("Username:");
+        getContentPane().add(jLabelUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, -1, -1));
 
-        jLabelPassword.setFont(new java.awt.Font("Ringbearer", 0, 24)); // NOI18N
+        jLabelPassword.setFont(new java.awt.Font("Baskerville Old Face", 1, 36)); // NOI18N
         jLabelPassword.setForeground(new java.awt.Color(174, 153, 108));
-        jLabelPassword.setText("Password");
-        getContentPane().add(jLabelPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 270, -1, -1));
+        jLabelPassword.setText("Password:");
+        getContentPane().add(jLabelPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 270, -1, -1));
         getContentPane().add(jTextFieldUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 310, 160, 30));
         getContentPane().add(jPasswordFieldPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 310, 160, 30));
 
@@ -81,21 +84,51 @@ public class SignUpForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabelSignUpMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelSignUpMousePressed
-        for(Player player: Player.Usuarios){
-            if(player.username.equals(jTextFieldUsername.getText())){
-                jLabelWarning.setText("Este nombre de usuario ya existe, porfavor elija uno nuevo.");
+       
+        MainMenu main = new MainMenu();
+       
+        
+        if(jTextFieldUsername.getText().isEmpty() || jPasswordFieldPassword.getPassword().length==0){ 
+            JOptionPane.showMessageDialog(null, "No pueden haber casillas en blanco!!");                          
+        }else{ 
+        
+        for(Player player: Player.Usuarios)
+            if(jTextFieldUsername.getText().equals(player.username)){
+                JOptionPane.showMessageDialog (null, "Este nombre de usuario ya existe, porfavor ingrese uno nuevo.", "Agregar Usuario", JOptionPane.INFORMATION_MESSAGE);    
+                
+                jTextFieldUsername.setText("");
+                jPasswordFieldPassword.setText(null);
+                
+                this.dispose();
+                
+                return;               
             }
-        }
-            if(jPasswordFieldPassword.getText().length()<5){
-                jLabelWarning.setText("Password demasiado corto. El password debe contener exactamente 5 caracteres.");
-            }else if(jPasswordFieldPassword.getText().length()>5){
-                jLabelWarning.setText("Password demasiado largo. El password debe contener exactamente 5 caracteres.");
-            }else{
-                Player usuario = new Player(jTextFieldUsername.getText(),jPasswordFieldPassword.getText());
-                Player.Usuarios.add(usuario);
+        if(jPasswordFieldPassword.getPassword().length<5){
+            
+             jLabelWarning.setText("Password demasiado corto. El password debe contener exactamente 5 caracteres.");
+             jPasswordFieldPassword.setText("");
+             
+        }else if(jPasswordFieldPassword.getPassword().length>5){
+            
+            jLabelWarning.setText("Password demasiado largo. El password debe contener exactamente 5 caracteres.");
+            jPasswordFieldPassword.setText("");
+                
+        }else{             
+            Player usuario = new Player(jTextFieldUsername.getText(),String.valueOf(jPasswordFieldPassword.getPassword()));
+            JOptionPane.showMessageDialog (null, "Usuario Agregado", "Agregar Usuario", JOptionPane.INFORMATION_MESSAGE);
+            Player.Usuarios.add(usuario);
+                
+            jTextFieldUsername.setText("");
+            jPasswordFieldPassword.setText("");
+            jLabelWarning.setText("");
+                
+             for(Player player: Player.Usuarios)
+              System.out.println(player.username + " "+player.password);
             }
+       }
+      
     }//GEN-LAST:event_jLabelSignUpMousePressed
-
+   
     
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

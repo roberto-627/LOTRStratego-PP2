@@ -5,6 +5,11 @@
  */
 package lotr.stratego;
 
+import java.util.HashSet;
+import java.util.Set;
+import javax.swing.JOptionPane;
+import static lotr.stratego.Player.currentPlayer;
+
 /**
  *
  * @author Roberto Melara
@@ -16,7 +21,7 @@ public class SignInForm extends javax.swing.JFrame {
      */
     public SignInForm() {
         initComponents();
-    }
+    } 
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -36,27 +41,27 @@ public class SignInForm extends javax.swing.JFrame {
         jLabelWarning = new javax.swing.JLabel();
         jLabelBackground = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabelTitle.setFont(new java.awt.Font("Ringbearer", 0, 36)); // NOI18N
+        jLabelTitle.setFont(new java.awt.Font("Baskerville", 0, 48)); // NOI18N
         jLabelTitle.setForeground(new java.awt.Color(18, 11, 11));
         jLabelTitle.setText("LOTR  Stratego");
-        getContentPane().add(jLabelTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, -1, -1));
+        getContentPane().add(jLabelTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
-        jLabelUser.setFont(new java.awt.Font("Ringbearer", 0, 24)); // NOI18N
+        jLabelUser.setFont(new java.awt.Font("Baskerville", 0, 36)); // NOI18N
         jLabelUser.setForeground(new java.awt.Color(174, 153, 108));
         jLabelUser.setText("Username");
-        getContentPane().add(jLabelUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, -1, -1));
+        getContentPane().add(jLabelUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, -1, -1));
 
-        jLabelPassword.setFont(new java.awt.Font("Ringbearer", 0, 24)); // NOI18N
+        jLabelPassword.setFont(new java.awt.Font("Baskerville", 0, 36)); // NOI18N
         jLabelPassword.setForeground(new java.awt.Color(174, 153, 108));
         jLabelPassword.setText("Password");
-        getContentPane().add(jLabelPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 270, -1, -1));
+        getContentPane().add(jLabelPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 270, -1, -1));
         getContentPane().add(jTextFieldUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 310, 160, 30));
         getContentPane().add(jPasswordFieldPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 310, 160, 30));
 
-        jLabelSignIn.setFont(new java.awt.Font("Ringbearer", 0, 36)); // NOI18N
+        jLabelSignIn.setFont(new java.awt.Font("Baskerville", 0, 36)); // NOI18N
         jLabelSignIn.setForeground(new java.awt.Color(174, 153, 108));
         jLabelSignIn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelSignIn.setText("Sign In");
@@ -79,7 +84,22 @@ public class SignInForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabelSignInMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelSignInMousePressed
+        String user = jTextFieldUsername.getText();
+        String pass = String.valueOf(jPasswordFieldPassword.getPassword());
         
+        if(Player.validar(user,pass)){  
+            JOptionPane.showMessageDialog(null, "Bienvenido!!!"); 
+                MenuPrincipal mp = new MenuPrincipal();
+                mp.setVisible(true); 
+                jTextFieldUsername.setText("");
+                jPasswordFieldPassword.setText(null);
+                this.dispose();
+        }else{
+            JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrecta...intente de nuevo!!");
+            jTextFieldUsername.setText("");
+            jPasswordFieldPassword.setText(null);
+        }
+ 
     }//GEN-LAST:event_jLabelSignInMousePressed
 
     /**
@@ -107,6 +127,9 @@ public class SignInForm extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(SignInForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
