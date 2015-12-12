@@ -8,6 +8,7 @@ package lotr.stratego;
 import java.util.HashSet;
 import java.util.Set;
 import javax.swing.JOptionPane;
+import lotr.stratego.MenuPrincipal.MenuPrincipal;
 
 /**
  *
@@ -40,8 +41,7 @@ public class SignUpForm extends javax.swing.JFrame {
         jLabelWarning = new javax.swing.JLabel();
         jLabelBackground = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(756, 732));
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(756, 732));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -122,6 +122,11 @@ public class SignUpForm extends javax.swing.JFrame {
             jTextFieldUsername.setText("");
             jPasswordFieldPassword.setText("");
             jLabelWarning.setText("");
+            this.dispose();
+            
+            Player.currentPlayer = usuario;
+            MenuPrincipal mp = new MenuPrincipal();
+             mp.setVisible(true); 
                 
              for(Player player: Player.Usuarios)
               System.out.println(player.username + " "+player.password);

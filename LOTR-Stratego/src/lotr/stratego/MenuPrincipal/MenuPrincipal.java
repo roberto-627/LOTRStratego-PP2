@@ -7,6 +7,8 @@ package lotr.stratego.MenuPrincipal;
 
 import MiPerfil.MiPerfil;
 import javax.swing.JOptionPane;
+import lotr.stratego.MainMenu;
+import lotr.stratego.Player;
 
 /**
  *
@@ -92,30 +94,43 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cmdMiPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdMiPerfilActionPerformed
-      
-        MiPerfil mip = new MiPerfil();
+      MiPerfil mip = new MiPerfil();    
+        mip.txtUsuarioPerfil.setText(Player.currentPlayer.getUser());
+        mip.txtPuntosPerfil.setText(String.valueOf(Player.currentPlayer.getPuntos()));
+        mip.txtPartidasPerfil.setText(String.valueOf(Player.currentPlayer.getPartidas()));
+        this.dispose();
+           
         mip.setVisible(true);
+        
         
     }//GEN-LAST:event_cmdMiPerfilActionPerformed
 
     private void cmdConfiguracionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdConfiguracionActionPerformed
-        JOptionPane.showMessageDialog(null, "PROXIMAMENTE DISPONIBLE"); 
-        System.out.println("CONFIGURAR");
+        this.dispose();
+        Configuracion cf = new Configuracion();
+        cf.setVisible(true);
     }//GEN-LAST:event_cmdConfiguracionActionPerformed
 
     private void cmdStrategoLOTRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdStrategoLOTRActionPerformed
-        System.out.println("ESTRATEGO");
+       this.dispose();
+        Stratego s = new Stratego();
+       s.setVisible(true);
+       
     }//GEN-LAST:event_cmdStrategoLOTRActionPerformed
 
     private void cmdTierraMediaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdTierraMediaActionPerformed
-       JOptionPane.showMessageDialog(null, "PROXIMAMENTE DISPONIBLE");
-        System.out.println("TIERRA");
+       this.dispose();
+        TierraMedia tm = new TierraMedia();
+       tm.setVisible(true);
     }//GEN-LAST:event_cmdTierraMediaActionPerformed
 
     private void cmdCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCerrarSesionActionPerformed
         this.dispose();
+        MainMenu main = new MainMenu();
+        
         JOptionPane.showMessageDialog(null, "Cerro Sesion Exitosamente!!");
         System.out.println("Cerrar sesion");
+        main.setVisible(true);
     }//GEN-LAST:event_cmdCerrarSesionActionPerformed
 
     /**

@@ -69,6 +69,7 @@ public class MainMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cmdSignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdSignInActionPerformed
+       this.dispose();
         SignInForm signin = new SignInForm();
             signin.setVisible(true);
     }//GEN-LAST:event_cmdSignInActionPerformed
@@ -78,6 +79,7 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_cmdSalirActionPerformed
 
     private void cmdSignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdSignUpActionPerformed
+        this.dispose();
         SignUpForm signup = new SignUpForm();
             signup.setVisible(true);
     }//GEN-LAST:event_cmdSignUpActionPerformed

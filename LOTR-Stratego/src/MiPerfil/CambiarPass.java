@@ -30,6 +30,8 @@ public class CambiarPass extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel3 = new javax.swing.JLabel();
+        txtOldPass = new javax.swing.JPasswordField();
         cmdCambiarPass = new javax.swing.JButton();
         cmdRegresar = new javax.swing.JButton();
         txtCambiarPass = new javax.swing.JPasswordField();
@@ -38,6 +40,14 @@ public class CambiarPass extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel3.setFont(new java.awt.Font("Baskerville", 1, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Ingrese contraseña antigüa:");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+
+        txtOldPass.setFont(new java.awt.Font("Baskerville", 0, 18)); // NOI18N
+        getContentPane().add(txtOldPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 170, -1));
 
         cmdCambiarPass.setFont(new java.awt.Font("Baskerville", 0, 18)); // NOI18N
         cmdCambiarPass.setText("Cambiar Contraseña");
@@ -58,11 +68,12 @@ public class CambiarPass extends javax.swing.JFrame {
         getContentPane().add(cmdRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 230, -1, 30));
 
         txtCambiarPass.setFont(new java.awt.Font("Baskerville", 0, 18)); // NOI18N
-        getContentPane().add(txtCambiarPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 180, -1));
+        getContentPane().add(txtCambiarPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 180, -1));
 
         jLabel2.setFont(new java.awt.Font("Baskerville", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Ingresar nueva contraseña:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lotr/stratego/VisualAssets/cambiarpass.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -77,8 +88,28 @@ public class CambiarPass extends javax.swing.JFrame {
     }//GEN-LAST:event_cmdRegresarActionPerformed
 
     private void cmdCambiarPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCambiarPassActionPerformed
-       
+//ANTIGUA PASS
+        if(txtOldPass.getPassword().length == 0){
+            JOptionPane.showMessageDialog(null, "No puede dejar vacio. Porfavor ingrese una contraseña valida!");
+            txtOldPass.setText("");
+            return;
+        }
+      
+        if(txtOldPass.getPassword().length <5){
+            JOptionPane.showMessageDialog(null, "Contraseña muy corta. Debe de ser exactamente de 5 caracteres!");
+            txtOldPass.setText("");
+            return;
+        }
+            
+        if(txtOldPass.getPassword().length>5){
+            JOptionPane.showMessageDialog(null, "Contraseña muy larga. Debe de ser exactamente de 5 caracteres!");
+            txtOldPass.setText("");
+            return;
+        }
         
+    
+
+//NUEVA PASS   
         if(txtCambiarPass.getPassword().length == 0){
             JOptionPane.showMessageDialog(null, "No puede dejar vacio. Porfavor ingrese una contraseña valida!");
             txtCambiarPass.setText("");
@@ -100,10 +131,19 @@ public class CambiarPass extends javax.swing.JFrame {
         int reply = JOptionPane.showConfirmDialog(null, "Esta seguro que quiere cambiar la contraseña?", "Cambiar Contraseña", JOptionPane.YES_NO_OPTION);        
             
         if (reply == JOptionPane.YES_OPTION) {
-            Player.currentPlayer.setPass(String.valueOf(txtCambiarPass.getPassword()));
-            JOptionPane.showMessageDialog(null, "Contraseña cambiada exitosamente!!");
-            txtCambiarPass.setText(null);
-            this.dispose();
+            if(String.valueOf(txtOldPass.getPassword()).equals(Player.currentPlayer.getPass())){
+                Player.currentPlayer.setPass(String.valueOf(txtCambiarPass.getPassword()));
+                JOptionPane.showMessageDialog(null, "Contraseña cambiada exitosamente!!");
+                txtOldPass.setText(null);
+                txtCambiarPass.setText(null);
+                this.dispose();
+                MiPerfil mi = new MiPerfil();
+                mi.setVisible(true);
+            }else{
+                JOptionPane.showMessageDialog(null, "No se cambio nada!!");
+                txtOldPass.setText(null);
+                txtCambiarPass.setText(null);
+            }
         }
     }//GEN-LAST:event_cmdCambiarPassActionPerformed
 
@@ -147,6 +187,8 @@ public class CambiarPass extends javax.swing.JFrame {
     private javax.swing.JButton cmdRegresar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPasswordField txtCambiarPass;
+    private javax.swing.JPasswordField txtOldPass;
     // End of variables declaration//GEN-END:variables
 }

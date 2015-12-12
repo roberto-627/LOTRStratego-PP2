@@ -22,6 +22,7 @@ public class Player {
     int fuerzaBien;
     int fuerzaMal;
     ArrayList <String> Ultimos10;
+    
     public static Player currentPlayer, secondPlayer;
     
     //Cosntructor de Players.

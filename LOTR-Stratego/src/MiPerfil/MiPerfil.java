@@ -30,21 +30,57 @@ public class MiPerfil extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        txtUsuarioPerfil = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        txtPuntosPerfil = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtPartidasPerfil = new javax.swing.JTextArea();
         jLabel2 = new javax.swing.JLabel();
         cmdEliminarCuenta = new javax.swing.JButton();
         cmdRegresarMP = new javax.swing.JButton();
         cmdFacebook = new javax.swing.JButton();
         cmdCambiarPass = new javax.swing.JButton();
-        cmdVerDatos = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        txtUsuarioPerfil.setEditable(false);
+        txtUsuarioPerfil.setFont(new java.awt.Font("Baskerville", 0, 24)); // NOI18N
+        getContentPane().add(txtUsuarioPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, 150, 30));
+
+        jLabel3.setFont(new java.awt.Font("Baskerville", 1, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Usuario:");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, -1, -1));
+
+        txtPuntosPerfil.setEditable(false);
+        txtPuntosPerfil.setFont(new java.awt.Font("Baskerville", 0, 24)); // NOI18N
+        getContentPane().add(txtPuntosPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, 150, 30));
+
+        jLabel4.setFont(new java.awt.Font("Baskerville", 1, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Puntos:");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, -1, -1));
+
+        jLabel5.setFont(new java.awt.Font("Baskerville", 1, 24)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Ultimos Partidos:");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
+
+        txtPartidasPerfil.setEditable(false);
+        txtPartidasPerfil.setColumns(20);
+        txtPartidasPerfil.setRows(5);
+        jScrollPane1.setViewportView(txtPartidasPerfil);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 430, 50));
+
         jLabel2.setFont(new java.awt.Font("Baskerville", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Mi Perfil");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 10, -1, -1));
 
         cmdEliminarCuenta.setFont(new java.awt.Font("Baskerville", 0, 18)); // NOI18N
         cmdEliminarCuenta.setText("Eliminar Cuenta");
@@ -53,7 +89,7 @@ public class MiPerfil extends javax.swing.JFrame {
                 cmdEliminarCuentaActionPerformed(evt);
             }
         });
-        getContentPane().add(cmdEliminarCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 190, 220, -1));
+        getContentPane().add(cmdEliminarCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 220, 230, -1));
 
         cmdRegresarMP.setFont(new java.awt.Font("Baskerville", 0, 18)); // NOI18N
         cmdRegresarMP.setText("Regresar Menu Principal");
@@ -62,7 +98,7 @@ public class MiPerfil extends javax.swing.JFrame {
                 cmdRegresarMPActionPerformed(evt);
             }
         });
-        getContentPane().add(cmdRegresarMP, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, -1, -1));
+        getContentPane().add(cmdRegresarMP, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 250, -1, -1));
 
         cmdFacebook.setFont(new java.awt.Font("Baskerville Old Face", 0, 18)); // NOI18N
         cmdFacebook.setText("Conectar a Facebook");
@@ -71,7 +107,7 @@ public class MiPerfil extends javax.swing.JFrame {
                 cmdFacebookActionPerformed(evt);
             }
         });
-        getContentPane().add(cmdFacebook, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 160, 230, -1));
+        getContentPane().add(cmdFacebook, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 230, -1));
 
         cmdCambiarPass.setFont(new java.awt.Font("Baskerville", 0, 18)); // NOI18N
         cmdCambiarPass.setText("Cambiar mi Contraseña");
@@ -80,16 +116,7 @@ public class MiPerfil extends javax.swing.JFrame {
                 cmdCambiarPassActionPerformed(evt);
             }
         });
-        getContentPane().add(cmdCambiarPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, 230, -1));
-
-        cmdVerDatos.setFont(new java.awt.Font("Baskerville", 0, 18)); // NOI18N
-        cmdVerDatos.setText("Ver mis datos");
-        cmdVerDatos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmdVerDatosActionPerformed(evt);
-            }
-        });
-        getContentPane().add(cmdVerDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 90, 230, -1));
+        getContentPane().add(cmdCambiarPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 230, -1));
 
         jLabel1.setFont(new java.awt.Font("Baskerville", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -99,15 +126,6 @@ public class MiPerfil extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void cmdVerDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdVerDatosActionPerformed
-       this.dispose();
-        VerDatos vd = new VerDatos();
-        vd.txtUsuarioPerfil.setText(Player.currentPlayer.getUser());
-        vd.txtPuntosPerfil.setText(String.valueOf(Player.currentPlayer.getPuntos()));
-        vd.txtPartidasPerfil.setText(String.valueOf(Player.currentPlayer.getPartidas()));
-        vd.setVisible(true);
-    }//GEN-LAST:event_cmdVerDatosActionPerformed
 
     private void cmdCambiarPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCambiarPassActionPerformed
         this.dispose();
@@ -169,8 +187,14 @@ public class MiPerfil extends javax.swing.JFrame {
     private javax.swing.JButton cmdEliminarCuenta;
     private javax.swing.JButton cmdFacebook;
     private javax.swing.JButton cmdRegresarMP;
-    private javax.swing.JButton cmdVerDatos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JScrollPane jScrollPane1;
+    public javax.swing.JTextArea txtPartidasPerfil;
+    public javax.swing.JTextField txtPuntosPerfil;
+    public javax.swing.JTextField txtUsuarioPerfil;
     // End of variables declaration//GEN-END:variables
 }
