@@ -5,6 +5,7 @@
  */
 package lotr.stratego;
 
+
 /**
  *
  * @author Roberto Melara
@@ -27,13 +28,18 @@ public class Inicio extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabelTittle = new javax.swing.JLabel();
         jLabelSignIn = new javax.swing.JLabel();
         jLabelSignUp = new javax.swing.JLabel();
         jLabelExit = new javax.swing.JLabel();
         jLabelBackground = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("LOTR Stratego");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabelTittle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lotr/stratego/ElementosVisuales/Tittle_Medium.png"))); // NOI18N
+        getContentPane().add(jLabelTittle, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, -1, -1));
 
         jLabelSignIn.setFont(new java.awt.Font("Ringbearer", 0, 36)); // NOI18N
         jLabelSignIn.setForeground(new java.awt.Color(174, 153, 108));
@@ -81,12 +87,14 @@ public class Inicio extends javax.swing.JFrame {
         // Abre la JFrame para iniciar sesion.
         SignInForm signin = new SignInForm();
         signin.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jLabelSignInMousePressed
 
     private void jLabelSignUpMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelSignUpMousePressed
         // Abre la JFrame para crear un nuevo usuario e iniciar sesion.
         SignUpForm signup = new SignUpForm();
         signup.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jLabelSignUpMousePressed
 
     /**
@@ -129,5 +137,6 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelExit;
     private javax.swing.JLabel jLabelSignIn;
     private javax.swing.JLabel jLabelSignUp;
+    private javax.swing.JLabel jLabelTittle;
     // End of variables declaration//GEN-END:variables
 }

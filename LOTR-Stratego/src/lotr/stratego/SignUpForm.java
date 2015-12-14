@@ -34,9 +34,10 @@ public class SignUpForm extends javax.swing.JFrame {
         jTextFieldUsername = new javax.swing.JTextField();
         jPasswordFieldPassword = new javax.swing.JPasswordField();
         jLabelWarning = new javax.swing.JLabel();
+        jLabelRegresar = new javax.swing.JLabel();
         jLabelBackground = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(756, 732));
         setMinimumSize(new java.awt.Dimension(756, 732));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -74,6 +75,16 @@ public class SignUpForm extends javax.swing.JFrame {
         jLabelWarning.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         getContentPane().add(jLabelWarning, new org.netbeans.lib.awtextra.AbsoluteConstraints(4, 650, 750, 40));
 
+        jLabelRegresar.setFont(new java.awt.Font("Ringbearer", 0, 36)); // NOI18N
+        jLabelRegresar.setForeground(new java.awt.Color(174, 153, 108));
+        jLabelRegresar.setText("Regresar");
+        jLabelRegresar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabelRegresarMousePressed(evt);
+            }
+        });
+        getContentPane().add(jLabelRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 560, -1, -1));
+
         jLabelBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lotr/stratego/ElementosVisuales/SignUp.png"))); // NOI18N
         getContentPane().add(jLabelBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -81,18 +92,22 @@ public class SignUpForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabelSignUpMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelSignUpMousePressed
-        for(Player player: Player.Usuarios){
-            if(player.username.equals(jTextFieldUsername.getText())){
+        try{
+            //Extraer datos de Jframe.
+            String usern = jTextFieldUsername.getText();
+            String pass = jPasswordFieldPassword.getText();
+            
+            //Buscar a el player en el Archivo.
+            if(Player.buscar(usern) != -1){
                 jLabelWarning.setText("Este nombre de usuario ya existe, porfavor elija uno nuevo.");
-            }
-        }
-            if(String.valueOf(jPasswordFieldPassword).length()<5){
+            }else if(pass.length()<5){
                 jLabelWarning.setText("Password demasiado corto. El password debe contener exactamente 5 caracteres.");
-            }else if(String.valueOf(jPasswordFieldPassword).length()>5){
+            }else if(pass.length()>5){
                 jLabelWarning.setText("Password demasiado largo. El password debe contener exactamente 5 caracteres.");
             }else{
-                Player usuario = new Player(jTextFieldUsername.getText(),String.valueOf(jPasswordFieldPassword));
-                Player.Usuarios.add(usuario);
+                Player usuario = new Player(usern, pass);
+                Player.agregarPlayer(usuario);
+                MainMenu.Player1 = usuario;
                 MainMenu mp = new MainMenu();
                 mp.setVisible(true);
                 jTextFieldUsername.setText("");
@@ -100,7 +115,20 @@ public class SignUpForm extends javax.swing.JFrame {
                 jLabelWarning.setText("");
                 this.dispose();
             }
+        }catch(Exception e){
+            System.out.println(e);
+            e.printStackTrace();
+        }
+        
+        
     }//GEN-LAST:event_jLabelSignUpMousePressed
+
+    private void jLabelRegresarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelRegresarMousePressed
+        //Regresar a el menu inicio.
+        Inicio init = new Inicio();
+        init.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jLabelRegresarMousePressed
 
     
     public static void main(String args[]) {
@@ -138,6 +166,7 @@ public class SignUpForm extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabelBackground;
     private javax.swing.JLabel jLabelPassword;
+    private javax.swing.JLabel jLabelRegresar;
     private javax.swing.JLabel jLabelSignUp;
     private javax.swing.JLabel jLabelTitle;
     private javax.swing.JLabel jLabelUser;

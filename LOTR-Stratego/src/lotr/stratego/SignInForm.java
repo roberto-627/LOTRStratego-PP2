@@ -5,6 +5,8 @@
  */
 package lotr.stratego;
 
+import java.io.IOException;
+
 /**
  *
  * @author Roberto Melara
@@ -34,9 +36,11 @@ public class SignInForm extends javax.swing.JFrame {
         jPasswordFieldPassword = new javax.swing.JPasswordField();
         jLabelSignIn = new javax.swing.JLabel();
         jLabelWarning = new javax.swing.JLabel();
+        jLabelRegresar = new javax.swing.JLabel();
         jLabelBackground = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setTitle("Sign In");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabelTitle.setFont(new java.awt.Font("Ringbearer", 0, 36)); // NOI18N
@@ -72,6 +76,16 @@ public class SignInForm extends javax.swing.JFrame {
         jLabelWarning.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         getContentPane().add(jLabelWarning, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 650, 750, 40));
 
+        jLabelRegresar.setFont(new java.awt.Font("Ringbearer", 0, 36)); // NOI18N
+        jLabelRegresar.setForeground(new java.awt.Color(174, 153, 108));
+        jLabelRegresar.setText("Regresar");
+        jLabelRegresar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabelRegresarMousePressed(evt);
+            }
+        });
+        getContentPane().add(jLabelRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 560, -1, -1));
+
         jLabelBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lotr/stratego/ElementosVisuales/SignIn.png"))); // NOI18N
         jLabelBackground.setDoubleBuffered(true);
         getContentPane().add(jLabelBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 730));
@@ -80,22 +94,35 @@ public class SignInForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabelSignInMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelSignInMousePressed
-        for(Player player: Player.Usuarios){
-            if(player.username.equals(jTextFieldUsername.getText())){
-                if(player.password.equals(String.valueOf(jPasswordFieldPassword))){
-                    MainMenu mp = new MainMenu();
-                    mp.setVisible(true); 
-                    jTextFieldUsername.setText("");
-                    jPasswordFieldPassword.setText(null);
-                    this.dispose();
-                }else{
-                  jLabelWarning.setText("Password incorrecto.");  
-                }
-            }else{
-                jLabelWarning.setText("Username no existe.");
+        try {
+            //Extrae los datos de la Jframe.
+            String usern = jTextFieldUsername.getText();
+            String pass = jPasswordFieldPassword.getText();
+            
+            //Funcion para el manejo de excepciones en el signIn.
+            if(Player.signIn(usern, pass) == 0){
+                MainMenu.Player1 = Player.cargarDatos(usern);
+                MainMenu mp = new MainMenu();
+                mp.setVisible(true);
+                jTextFieldUsername.setText("");
+                jPasswordFieldPassword.setText(null);
+                this.dispose();
+            }else if(Player.signIn(usern, pass) == 1){
+                jLabelWarning.setText("Usuario no encontrado.");
+            }else if(Player.signIn(usern, pass) == 2){
+                jLabelWarning.setText("Password Incorrecta.");
             }
+        } catch (IOException ex) {
+            ex.printStackTrace();
         }
     }//GEN-LAST:event_jLabelSignInMousePressed
+
+    private void jLabelRegresarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelRegresarMousePressed
+        // Regresar al menu inicio.
+        Inicio init = new Inicio();
+        init.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jLabelRegresarMousePressed
 
     /**
      * @param args the command line arguments
@@ -135,11 +162,12 @@ public class SignInForm extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabelBackground;
     private javax.swing.JLabel jLabelPassword;
+    private javax.swing.JLabel jLabelRegresar;
     private javax.swing.JLabel jLabelSignIn;
     private javax.swing.JLabel jLabelTitle;
     private javax.swing.JLabel jLabelUser;
-    private javax.swing.JLabel jLabelWarning;
-    private javax.swing.JPasswordField jPasswordFieldPassword;
-    private javax.swing.JTextField jTextFieldUsername;
+    public static javax.swing.JLabel jLabelWarning;
+    public static javax.swing.JPasswordField jPasswordFieldPassword;
+    public static javax.swing.JTextField jTextFieldUsername;
     // End of variables declaration//GEN-END:variables
 }

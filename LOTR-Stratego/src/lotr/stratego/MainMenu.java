@@ -5,17 +5,26 @@
  */
 package lotr.stratego;
 
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Roberto Melara
  */
 public class MainMenu extends javax.swing.JFrame {
+    static Player Player1;
+    static Player Player2;
+    static String ModoJuego = "TUTORIAL";
+    
 
     /**
      * Creates new form MainMenu
      */
     public MainMenu() {
         initComponents();
+        jLabelSignedInUser.setText(Player1.username);
     }
 
     /**
@@ -36,22 +45,49 @@ public class MainMenu extends javax.swing.JFrame {
         jLabelCerrarSesion = new javax.swing.JLabel();
         jLabelBackground = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setTitle("Lord of the Rings Stratego");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setMaximumSize(new java.awt.Dimension(1366, 768));
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabelSignedInAs.setFont(new java.awt.Font("Ringbearer", 0, 36)); // NOI18N
-        jLabelSignedInAs.setForeground(new java.awt.Color(174, 153, 108));
+        jLabelSignedInAs.setForeground(new java.awt.Color(185, 167, 129));
         jLabelSignedInAs.setText("Signed In as:");
         getContentPane().add(jLabelSignedInAs, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
 
         jLabelSignedInUser.setFont(new java.awt.Font("Ringbearer", 0, 36)); // NOI18N
-        jLabelSignedInUser.setForeground(new java.awt.Color(174, 153, 108));
+        jLabelSignedInUser.setForeground(new java.awt.Color(185, 167, 129));
         getContentPane().add(jLabelSignedInUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 40, 300, 40));
         getContentPane().add(jLabelPlay, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 214, 340, 390));
+
+        jLabelMiddleEarth.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabelMiddleEarthMousePressed(evt);
+            }
+        });
         getContentPane().add(jLabelMiddleEarth, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 100, 150, 150));
+
+        jLabelMyProfile.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabelMyProfileMousePressed(evt);
+            }
+        });
         getContentPane().add(jLabelMyProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(1194, 234, 120, 240));
+
+        jLabelSettings.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabelSettingsMousePressed(evt);
+            }
+        });
         getContentPane().add(jLabelSettings, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 480, 190, 140));
+
+        jLabelCerrarSesion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabelCerrarSesionMousePressed(evt);
+            }
+        });
         getContentPane().add(jLabelCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 660, 210, 80));
 
         jLabelBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lotr/stratego/ElementosVisuales/MainMenuIcons.png"))); // NOI18N
@@ -60,6 +96,38 @@ public class MainMenu extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jLabelCerrarSesionMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelCerrarSesionMousePressed
+        try {
+            //Cerrar Sesion.
+            Player.guardar(Player1.username);
+            Player1 = null;
+            Inicio init = new Inicio();
+            init.setVisible(true);
+            this.dispose();
+        } catch (IOException ex) {
+            System.out.println(ex);}
+    }//GEN-LAST:event_jLabelCerrarSesionMousePressed
+
+    private void jLabelSettingsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelSettingsMousePressed
+        // Abrir el menu de Configuracion.
+        Configuracion config = new Configuracion();
+        config.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jLabelSettingsMousePressed
+
+    private void jLabelMiddleEarthMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelMiddleEarthMousePressed
+        TierraMedia tm = new TierraMedia();
+        tm.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jLabelMiddleEarthMousePressed
+
+    private void jLabelMyProfileMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelMyProfileMousePressed
+        //Ir a mi perfil.
+        MiPerfil mp = new MiPerfil();
+        mp.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jLabelMyProfileMousePressed
 
     /**
      * @param args the command line arguments
