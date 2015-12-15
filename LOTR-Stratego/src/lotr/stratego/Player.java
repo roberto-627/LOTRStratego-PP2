@@ -51,6 +51,9 @@ public class Player{
         fuerzaBien = 0;
         fuerzaMal = 0;
         Ultimos10 = new ArrayList<>();
+        for(int partida = 0; partida < 10; partida ++){
+            Ultimos10.add(partida + "-");
+        }
         activo = true;
     }
     //Player con datos cargados.
@@ -101,7 +104,7 @@ public class Player{
         //Crear Carpeta de usuario.
         File carpeta = new File(p.username);
         carpeta.mkdir();
-        File ult10 = new File( p.username + "/Ult10" + p.username + ".lotr");
+        File ult10File = new File( p.username + "/Ult10_" + p.username + ".lotr");
         
         //Ir al Final de el Archivo.
         users.seek(users.length());
@@ -113,6 +116,12 @@ public class Player{
         users.writeInt(p.fuerzaBien);
         users.writeInt(p.fuerzaMal);
         users.writeBoolean(true);
+        
+        //Inicializar File de Ultimos 10.
+        RandomAccessFile ult10 = new RandomAccessFile(ult10File,"rw");
+        for(int partida = 1; partida < 11; partida ++){
+            ult10.writeUTF(partida + "-");
+        }
     }
     
     //Funcion para determinar si un usuario esta activo.
@@ -158,6 +167,7 @@ public class Player{
         //RandomAccessFile para el manejo de usuarios.
         RandomAccessFile users = new RandomAccessFile(Player.usuariosFile,"rw");
         users.seek(buscar(usern));
+        
         //Comenzar a leer en archivo.
         String usernam = users.readUTF();
         String pass = users.readUTF();
@@ -165,13 +175,20 @@ public class Player{
         int part = users.readInt();
         int fuerzaB = users.readInt();
         int fuerzaM = users.readInt();
-        ArrayList<String> ultj=  new ArrayList<>();
-        for(int pos = 0; pos < 10; pos++){
-            ultj.add(users.readUTF());
-        }
         boolean activo = users.readBoolean();
         
-        return new Player(usernam, pass, punt, part, fuerzaB, fuerzaM, ultj, activo);
+        //ArrayList para las ultimas 10.
+        ArrayList<String> ultimas10 = new ArrayList<>();
+        
+        //Acceder al archivo de las ultimas partidas.
+        File ult10File = new File(usern + "/Ult10_" + usern + ".lotr");
+        RandomAccessFile ult10 = new RandomAccessFile(ult10File,"rw");
+        ult10.seek(0);
+        for(int partida = 0; partida < 1; partida ++){
+            ultimas10.add(ult10.readUTF());
+        }
+        
+        return new Player(usernam, pass, punt, part, fuerzaB, fuerzaM, ultimas10, activo);
     }
     
     //Funcion que devuelve cantidad de players Activos.
@@ -187,9 +204,6 @@ public class Player{
             users.readInt();
             users.readInt();
             users.readInt();
-            for(int pos = 0; pos < 10; pos++){
-                users.readUTF();
-            }
             if(users.readBoolean()){
                 ContAct ++;
             }
@@ -210,9 +224,6 @@ public class Player{
             users.readInt();
             users.readInt();
             users.readInt();
-            for(int pos = 0; pos < 10; pos++){
-                users.readUTF();
-            }
             users.readBoolean();
             ContHist ++;   
         }
@@ -232,9 +243,6 @@ public class Player{
             PartHist += users.readInt();
             users.readInt();
             users.readInt();
-            for(int pos = 0; pos < 10; pos++){
-                users.readUTF();
-            }
             users.readBoolean();   
         }
         return PartHist;
@@ -253,9 +261,6 @@ public class Player{
             users.readInt();
             FB += users.readInt();
             users.readInt();
-            for(int pos = 0; pos < 10; pos++){
-                users.readUTF();
-            }
             users.readBoolean();   
         }
         return FB;
@@ -274,29 +279,12 @@ public class Player{
             users.readInt();
             users.readInt();
             FM += users.readInt();
-            for(int pos = 0; pos < 10; pos++){
-                users.readUTF();
-            }
             users.readBoolean();   
         }
         return FM;
     }
     
-    //Funcion que retorna un arreglo con las ultimas 10 partidas jugadas.
-    public static String[] Ult10ToTable(Player p){
-        String[] ult10 =  new String[10];
-        Object[] playerUlt10 = p.Ultimos10.toArray();
-        for(int pos= 0; pos <10; pos ++){
-            ult10[pos] = playerUlt10[pos].toString();
-        }
-        return ult10;
-    }
-    
-    public static String[] encabezados(){
-        String head[] = {"Posicion","Usuario","Puntos"};
-        return head;
-    }
-    
+    //Funcion para guardar cambios hechos en sesion
     public static void guardar(String usern) throws IOException{
         //RandomAccessFile para el manejo de usuarios.
         RandomAccessFile users = new RandomAccessFile(Player.usuariosFile,"rw");
@@ -308,16 +296,19 @@ public class Player{
         //Sobreescribir datos.
         users.writeUTF(MainMenu.Player1.username);
         users.writeUTF(MainMenu.Player1.password);
-        users.writeInt(MainMenu.Player1.puntos);
-                  
+        users.writeInt(MainMenu.Player1.puntos);          
         users.writeInt(MainMenu.Player1.partidas);
         users.writeInt(MainMenu.Player1.fuerzaBien);
         users.writeInt(MainMenu.Player1.fuerzaMal);
-        Object[] ult10j = MainMenu.Player1.Ultimos10.toArray();
-        for(int p = 0 ; p < 10; p++){
-            users.writeUTF(ult10j[p].toString());
-        }
         users.writeBoolean(MainMenu.Player1.activo);
+        
+        //Archivo de manejo de partidas.
+        File ult10File = new File(usern + "/Ult10_" + usern + ".lotr");
+        RandomAccessFile ult10 = new RandomAccessFile(ult10File,"rw");
+        ult10.seek(0);
+        for(int partida = 0; partida < 10; partida ++){
+            ult10.writeUTF(MainMenu.Player1.Ultimos10.get(partida));
+        }
     }
    
 }
